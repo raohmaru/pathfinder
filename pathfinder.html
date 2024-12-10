@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinder</title>
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+        }
+        output {
+            border: solid 1px #999;
+            background: #fcfcfc;
+            padding: 3px 6px;
+            display: block;
+            margin-top: 1em;
+            width: 300px;
+        }
+        canvas {
+            margin-top: 1em;
+            border: solid 1px #aaa;
+            border-width: 0 1px 1px 0;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            cursor: pointer;
+        }
+        .info {
+            border: solid 1px #69a6e6;
+            background: #deeeff;
+            padding: 3px 6px 3px 30px;
+            display: block;
+            margin-top: 1em;
+            width: 300px;
+            position: relative;
+            
+            &:before {
+                content: 'i';
+                position: absolute;
+                color: #fff;
+                top: 0;
+                left: 0;
+                font-size: 1.4em;
+                bottom: 0;
+                background: #69a6e6;
+                line-height: 1;
+                align-content: center;
+                padding: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="find"><strong>Find</strong></button>
+    <button id="reset">Reset</button>
+    🏃
+    <input type="number" id="ms" min="0" max="500" step="5" title="Play speed" value="50" style="width: 42px">
+    <label for="diagonal">↯ </label><input type="checkbox" id="diagonal" title="Allow diagonal movement">
+    ⚖
+    <input type="number" id="weight" min="-10" max="10" step="0.1" title="Weight to apply to the heuristic to allow for suboptimal paths, in order to speed up the search" value="1" style="width: 40px">
+    <select id="heuristic" title="Heuristic function to estimate the distance to the destination">
+        <option value="manhattan" selected>Manhattan</option>
+        <option value="euclidean">Euclidean</option>
+        <option value="octile">Octile</option>
+        <option value="chebyshev">Chebyshev</option>
+    </select>
+    Size:
+    <input type="number" id="cols" min="10" max="100" value="20" style="width: 40px">
+    x
+    <input type="number" id="rows" min="10" max="100" value="20" style="width: 40px">
+    &nbsp; &nbsp; <strong>A* Pathfinding</strong>
+    <output id="output">
+        Number of steps: <br>
+        Execution time:  ms
+    </output>
+    <canvas width="600" height="600" id="world"></canvas>
+    <p class="info">
+        Left click to draw an obstacle.<br>
+        Right click to clear an obstacle.
+    </p>
+    <script src="main.js" type="module"></script>
+</body>
+</html>
