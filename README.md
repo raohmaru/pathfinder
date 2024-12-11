@@ -1,5 +1,5 @@
-# A* Pathfinder in JavaScript ↯
-Find the optimal path between two points in a 2D map by using A* Pathfinding algorithm.
+# Pathfinder in JavaScript ↯
+Find the optimal path between two points in a 2D map by using [A* search algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
 
 ```js
 import Grid from './libs/Grid.js';
@@ -25,6 +25,9 @@ const diagonalMovement = true;
 // `closed` contains all the paths
 const [path, closed] = PathFinder(list, startCell, targetCell, grid, manhattan, diagonalMovement);
 ```
+
+## Demo
+[Try A* Pathfinder ↯ here](https://raohmaru.github.io/pathfinder/pathfinder.html).
 
 ## References
 + https://esstudio.site/2018/10/31/implementing-binary-heaps-with-javascript.html
